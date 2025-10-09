@@ -40,7 +40,7 @@ The platform emphasizes **performance**, **scalability**, and **security**, feat
 
 ---
 
-## ⚙️ Tech Stack  
+## Tech Stack  
 
 **Frontend:**  
 - [Next.js](https://nextjs.org/)  
