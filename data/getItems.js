@@ -7,7 +7,8 @@ export default async function getItems(onfail) {
   if (result.data.success) {
     return result.data.items;
   } else {
-    onfail(result);
+    //onfail(result);
+	console.log("unable to fetch get items endpoint");
     return [];
   }
 }

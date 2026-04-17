@@ -4,6 +4,7 @@ import {gen_admin_token} from "../../../lib/token";
 
 
 export default async function verify(req, res){
+	console.log("TEST");
     if (req.method == "POST"){
         var password = req.body.password;
         if(!password){
@@ -22,11 +23,12 @@ export default async function verify(req, res){
                 }
             });
             console.log("Debug 2");
+	 	console.log(admin.passwordHash);
 
             var pass_cmp = await bcrypt_compare(password, admin.passwordHash);
 
             console.log("Debug 3");
-
+	    console.log(pass_cmp);
             if (!pass_cmp){
                 res.status(200).json({
                     message: "Invalid password",

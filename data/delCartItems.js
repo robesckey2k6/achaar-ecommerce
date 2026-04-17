@@ -10,7 +10,6 @@ export default async function delCartItem(cartId, itemId, onfail) {
   if (result.data.success) {
     return true;
   } else {
-    onfail(result);
     return false;
   }
 }

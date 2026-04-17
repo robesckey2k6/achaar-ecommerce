@@ -7,7 +7,6 @@ export default async function getForYou(onfail) {
   if (result.data.success) {
     return result.data.items;
   } else {
-    onfail(result);
     return [];
   }
 }

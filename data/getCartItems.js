@@ -10,7 +10,6 @@ export default async function getCartItems(cartId, itemId, onfail) {
   if (result.data.success) {
     return [result.data.items, result.data.total];
   } else {
-    onfail(result);
     return [];
   }
 }

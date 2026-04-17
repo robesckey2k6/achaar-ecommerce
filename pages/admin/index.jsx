@@ -31,6 +31,7 @@ export default function Admin(){
                 var result = await axios.post(getEndpoint(endPoints.sesAdmin), {
                     token: token
                 });
+			
                 if(!result.data.success){
                     router.push('/');
                 }
