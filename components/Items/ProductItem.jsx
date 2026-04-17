@@ -8,7 +8,7 @@ export default function ProductItem(props) {
   const [loading, setLoading] = useState(false);
   return (
     <div
-      className="flex flex-col gap-2 p-1 transition-colors justify-around rounded-md h-[18rem]"
+      className="flex flex-col gap-2 p-1 transition-colors justify-around rounded-md h-[20rem]"
       id="item-pannel"
     >
       <div className="flex flex-col relative">

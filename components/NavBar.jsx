@@ -13,17 +13,18 @@ function SiteLogo(props) {
   if (!props.hide) {
     return (
       <div
-        className="flex items-center gap-2 justify-center cursor-pointer"
+        className="flex items-center justify-center cursor-pointer select-none"
         onClick={props.onClick}
       >
-        <Image src={logo} className="w-16"></Image>
+        <span className="text-xl md:text-2xl font-bold tracking-widest text-black">
+          [ ROBO SHOP ]
+        </span>
       </div>
     );
   } else {
-    <></>;
+    return null;
   }
 }
-
 function CartButton(props) {
   if (!props.hide) {
     return (

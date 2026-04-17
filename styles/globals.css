@@ -45,9 +45,10 @@ input[type="number"] {
 .item-grid {
   display: grid;
   grid-template-columns: repeat(2, 11rem);
-  grid-template-rows: repeat(auto-fit, 18rem);
+  grid-template-rows: repeat(auto-fit, 26rem);
   width: fit-content;
   gap: 1rem;
+  padding: 30px;
 }
 
 @media (min-width: 768px) {

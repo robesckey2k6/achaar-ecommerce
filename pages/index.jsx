@@ -39,23 +39,32 @@ export default function index() {
   const router = useRouter();
   return (
     <>
-      <div
-        className="h-60 flex items-center justify-center"
-        id="head-bar"
-        style={{
-          backgroundImage: `url(${TitleBackgroundImage.src})`,
-        }}
-      >
-        <div
-          className="flex flex-col items-center justify-center gap-2"
-          id="head-bar-tint"
-        >
-          <h1 className="text-6xl font-bold text-white">Ama Kashi</h1>
-          <Button variant="outline" color="white">
-            {"About us >"}
-          </Button>
-        </div>
-      </div>
+	  <div
+  className="h-[50vh] flex items-center justify-center bg-cover bg-center relative grayscale"
+  id="head-bar"
+  style={{
+    backgroundImage: `url(${TitleBackgroundImage.src})`,
+  }}
+>
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  {/* Content */}
+  <div
+    className="relative flex flex-col items-center justify-center gap-3 text-center px-4"
+    id="head-bar-tint"
+  >
+    <h1 className="text-5xl md:text-6xl font-extrabold tracking-widest text-white">
+      [ ROBO SHOP ]
+    </h1>
+
+    <p className="text-sm md:text-base text-gray-200 max-w-xl leading-relaxed">
+      Discover modern clothing designed for comfort, confidence, and everyday
+      style. ROBO SHOP brings you carefully selected apparel that blends
+      quality materials with clean, timeless design.
+    </p>
+  </div>
+</div>
       <div className="flex flex-col items-center py-4 gap-4">
         <div className="flex flex-col w-auto gap-2">
           <div className="flex justify-between w-full px-4">
@@ -69,8 +78,9 @@ export default function index() {
           </div>
 
           <div className="item-grid pb-10">
+
             {loadingForYou ? (
-              <div className="flex w-full h-full items-center justify-center">
+              <div className="flex w-full h-full items-center justify-center gap-y-20">
                 <Loader size="md" color="black"></Loader>
               </div>
             ) : (

@@ -1,23 +1,43 @@
 import React from "react";
 
-import { IconBrandInstagram } from "@tabler/icons-react";
-
 export default function BottomBar() {
   return (
-    <div className="bg-black md:h-[40vh] flex flex-col items-center justify-center text-white p-10 overflow-hidden gap-4 text-center">
-      <h1 className="text-4xl font-bold text-white">Ama Kashi</h1>
-      <a target="_blank" href="https://www.instagram.com/amakashi.achaar/">
-        <IconBrandInstagram color="white"></IconBrandInstagram>
-      </a>
-      <p className="text-sm">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout.
+    <footer className="bg-black text-white flex flex-col items-center justify-center px-6 py-12 gap-6 text-center">
+      
+      {/* Brand */}
+      <h1 className="text-3xl font-semibold tracking-widest">
+        [ ROBO SHOP ]
+      </h1>
+
+      {/* Description */}
+      <p className="max-w-md text-sm text-gray-300 leading-relaxed">
+        Quality products delivered with reliability and care.  
+        Our mission is to provide simple, trustworthy, and efficient
+        shopping experiences for our customers.
       </p>
-      <p className="text-sm">Contact: +977 9823233467 | +977 9823233467</p>
-      <p className="text-sm">Website built with ❤️ by Robesckey D. Maharjan</p>
-      <p className="text-sm">
-        Issues reguarding website? robesckeydangol2006@gmail.com
-      </p>
-    </div>
+
+      {/* Contact */}
+      <div className="text-sm text-gray-300 space-y-1">
+        <p>Contact: +61 400 000 000 | +61 400 000 000</p>
+      </div>
+
+      {/* Divider */}
+      <div className="w-24 border-t border-gray-700"></div>
+
+      {/* Credits */}
+      <div className="text-xs text-gray-400 space-y-1">
+        <p>Website built with ❤️ by Robesckey D. Maharjan</p>
+        <p>
+          Website issues?{" "}
+          <a
+            href="mailto:robesckeydangol2006@gmail.com"
+            className="underline hover:text-white"
+          >
+            robesckeydangol2006@gmail.com
+          </a>
+        </p>
+      </div>
+
+    </footer>
   );
 }
