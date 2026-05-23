@@ -1,40 +1,31 @@
-import { startTransition, useState } from "react";
-
-import Image from "next/image";
-
-import { Button } from "@mantine/core";
-
-import logo from "@/public/logo.jpg";
-
+import { useState } from "react";
 import CartDrawer from "./Default/CartDrawer";
-import { IconShoppingCart } from "@tabler/icons-react";
+import { IconShoppingBag } from "@tabler/icons-react";
 
-function SiteLogo(props) {
-  if (!props.hide) {
-    return (
-      <div
-        className="flex items-center justify-center cursor-pointer select-none"
-        onClick={props.onClick}
-      >
-        <span className="text-xl md:text-2xl font-bold tracking-widest text-black">
-          [ ROBO SHOP ]
-        </span>
-      </div>
-    );
-  } else {
-    return null;
-  }
+function SiteLogo({ onClick }) {
+  return (
+    <div
+      className="flex items-center cursor-pointer select-none"
+      onClick={onClick}
+    >
+      <span className="text-base font-bold tracking-[0.3em] text-gray-900">
+        THREAD & CO.
+      </span>
+    </div>
+  );
 }
-function CartButton(props) {
-  if (!props.hide) {
-    return (
-      <Button variant="transparent" color="black" onClick={props.onClick}>
-        <IconShoppingCart />
-      </Button>
-    );
-  } else {
-    <></>;
-  }
+
+function CartButton({ hide, onClick }) {
+  if (hide) return null;
+  return (
+    <button
+      className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2 rounded-lg hover:bg-gray-100"
+      onClick={onClick}
+    >
+      <IconShoppingBag size={20} stroke={1.5} />
+      <span className="hidden md:inline">Cart</span>
+    </button>
+  );
 }
 
 export default function NavBar(props) {
@@ -46,29 +37,18 @@ export default function NavBar(props) {
 
   return (
     <>
-      {/* NavBar Desktop */}
-      <div className="flex bg-gray-50 h-20 items-center md:justify-around justify-between sticky top-0 shadow-md z-10 w-full p-2 md:p-0">
-        <SiteLogo
-          onClick={() => {
-            globalThis.router.push("/");
-          }}
-        />
+      <header className="sticky top-0 z-10 bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <SiteLogo
+            onClick={() => {
+              globalThis.router.push("/");
+            }}
+          />
+          <CartButton hide={props.disableCart} onClick={() => setOpenCart(true)} />
+        </div>
+      </header>
 
-        <CartButton
-          hide={props.disableCart}
-          onClick={() => {
-            setOpenCart(true);
-          }}
-        />
-      </div>
-
-      {/* Cart Drawer */}
-      <CartDrawer
-        opened={openCart}
-        onClose={() => {
-          setOpenCart(false);
-        }}
-      />
+      <CartDrawer opened={openCart} onClose={() => setOpenCart(false)} />
     </>
   );
 }

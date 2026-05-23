@@ -1,17 +1,20 @@
-import { Indicator } from '@mantine/core'
-import React from 'react'
+import { Indicator } from "@mantine/core";
+import React from "react";
 
 export default function CheckoutItem(props) {
   return (
-    <div className="flex items-center justify-between gap-2 w-96">
-        <Indicator inline label={props.count} size={24} color="black">
-            <img width="100" height="100" src={props.image}></img>
-        </Indicator>
-        <p>{props.name}</p>
-        <div className="flex gap-2">
-            <p className='font-light'>NPR</p> 
-            <p className='font-medium'>रु {props.price}</p>   
-        </div>
+    <div className="flex items-center gap-4 py-3 border-b border-gray-100 last:border-0">
+      <Indicator inline label={props.count} size={20} color="dark">
+        <img
+          width={64}
+          height={64}
+          src={props.image}
+          className="rounded-lg object-cover border border-gray-100 bg-gray-50"
+          alt={props.name}
+        />
+      </Indicator>
+      <p className="flex-1 text-sm font-medium text-gray-900">{props.name}</p>
+      <p className="text-sm font-semibold text-gray-900">$ {props.price}</p>
     </div>
-  )
+  );
 }

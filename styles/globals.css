@@ -6,23 +6,7 @@
 @tailwind utilities;
 
 * {
-  font-family: "Geist", serif;
-}
-#head-bar {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  background-attachment: fixed;
-}
-
-#head-bar-tint {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-blend-mode: multiply;
-  z-index: 1;
+  font-family: "Geist", sans-serif;
 }
 
 textarea:focus,
@@ -44,27 +28,19 @@ input[type="number"] {
 
 .item-grid {
   display: grid;
-  grid-template-columns: repeat(2, 11rem);
-  grid-template-rows: repeat(auto-fit, 26rem);
-  width: fit-content;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  padding: 30px;
+  width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .item-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 11rem);
-    grid-template-rows: repeat(auto-fit, 18rem);
-    width: fit-content;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 375px) {
+@media (min-width: 1024px) {
   .item-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 11rem);
-    grid-template-rows: repeat(auto-fit, 18rem);
-    width: fit-content;
+    grid-template-columns: repeat(4, 1fr);
   }
 }

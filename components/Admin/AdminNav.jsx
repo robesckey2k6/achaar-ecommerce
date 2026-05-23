@@ -1,75 +1,76 @@
-import { NavLink } from '@mantine/core';
+import { NavLink } from "@mantine/core";
+import {
+  IconTruckDelivery,
+  IconListLetters,
+  IconSettings,
+  IconLogout,
+} from "@tabler/icons-react";
+import { useState } from "react";
+import SectionLabel from "./SectionLabel";
 
+export default function AdminNav(props) {
+  const [active, setActive] = useState(props.initPageIndex);
 
-import { IconTruckDelivery } from '@tabler/icons-react';
-import { IconListLetters } from '@tabler/icons-react';
-import { IconSettings } from '@tabler/icons-react';
-import { IconLogout } from '@tabler/icons-react';
+  const navItems = [
+    {
+      icon: <IconTruckDelivery size={18} stroke={1.5} />,
+      label: "Orders",
+      description: "Manage customer orders",
+    },
+    {
+      icon: <IconListLetters size={18} stroke={1.5} />,
+      label: "Items",
+      description: "Manage product listings",
+    },
+  ];
 
-import {useState } from "react";
-import SectionLabel from './SectionLabel';
+  return (
+    <div className="flex flex-col w-60 bg-white border-r border-gray-200 min-h-screen sticky top-0 flex-shrink-0">
+      <div className="px-5 py-6 border-b border-gray-100">
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
+          Admin
+        </p>
+        <p className="text-lg font-bold text-gray-900 mt-0.5">Dashboard</p>
+      </div>
 
-export default function AdminNav(props){
-    const [active, setActive] = useState(props.initPageIndex);
-
-    const data = [
-        {
-            icon: <IconTruckDelivery />,
-            label: "Orders",
-            description: "List of all the placed orders"
-        },
-        {
-            icon: <IconListLetters/>,
-            label: "Items",
-            description: "List of all the placed orders"
-        }
-    ];
-
-    const items = data.map((item, index) => (
-        <NavLink 
+      <nav className="flex flex-col p-3 flex-1">
+        <SectionLabel title="Store" />
+        {navItems.map((item, index) => (
+          <NavLink
             key={index}
             active={index === active}
             label={item.label}
-            leftSection={
-                item.icon
-            }
-            color='black'
+            leftSection={item.icon}
+            color="dark"
             description={item.description}
+            style={{ borderRadius: 8 }}
             onClick={() => {
-                setActive(index);
-                props.onPageChange(index);
+              setActive(index);
+              props.onPageChange(index);
             }}
-        ></NavLink>
-    ));
+          />
+        ))}
 
-
-
-    return <div className="flex flex-col items-around w-64 bg-gray-100 h-[100vh] text-black shadow-sm gap-4 overflow-y-scroll sticky top-0">
-
-        <div className="flex items-center justify-center h-32 w-full font-bold text-xl">
-            Admin Dashboard
+        <div className="mt-auto">
+          <SectionLabel title="Account" />
+          <NavLink
+            label="Settings"
+            leftSection={<IconSettings size={18} stroke={1.5} />}
+            color="dark"
+            description="Dashboard configuration"
+            style={{ borderRadius: 8 }}
+          >
+            <NavLink
+              label="Logout"
+              leftSection={<IconLogout size={18} stroke={1.5} />}
+              color="red"
+              description="Sign out of admin"
+              style={{ borderRadius: 8 }}
+              onClick={props.logout}
+            />
+          </NavLink>
         </div>
-        <SectionLabel title="Ecommerce Configurations" />
-        {items}
-        <SectionLabel title="Account Configurations" />
-        <NavLink 
-                label="Settings"
-                leftSection={
-                    <IconSettings/>
-                }
-                color='black'
-                description="Dashboard configuration"
-                childrenOffset={28}
-            >
-                <NavLink 
-                    label="Logout"
-                    leftSection={
-                        <IconLogout/>
-                    }
-                    color='black'
-                    description="Logout of admin account"
-                    onClick={props.logout}
-                />
-            </NavLink>
+      </nav>
     </div>
+  );
 }
